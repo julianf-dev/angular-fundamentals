@@ -1,3 +1,10 @@
+<h1>ngIf</h1>
+<input required type="text" [(ngModel)]="person.name"/>
+<p *ngIf="person.name.toLowerCase() === 'julian' && person.age === 18; else myBlock ">My content</p>
+<ng-template #myBlock>
+  <p>No soy Julian</p>
+</ng-template>
+<hr/>
 <h1>NgModel</h1>
 <p>Nombre {{person.name}}</p>
 <input required type="text" #nameInput="ngModel" [(ngModel)]="person.name"/>
@@ -5,7 +12,6 @@
 <p>Age {{person.age}}</p>
 <input required max="18" min="10" type="number" #ageInput="ngModel" [(ngModel)]="person.age"/>
 <p>valid: {{ageInput.valid}}</p>
-
 <hr/>
 <h1>Events</h1>
 <button [disabled]="btnDisabled">Send</button>
