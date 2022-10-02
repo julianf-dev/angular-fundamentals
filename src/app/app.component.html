@@ -1,3 +1,10 @@
+<h1>ngFor</h1>
+<ul>
+  <li *ngFor="let name of names;index as i">
+    {{i}}}{{ name }}
+  </li>
+</ul>
+<hr/>
 <h1>ngIf</h1>
 <input required type="text" [(ngModel)]="person.name"/>
 <p *ngIf="person.name.toLowerCase() === 'julian' && person.age === 18; else myBlock ">My content</p>
