@@ -1,43 +1,95 @@
-<h1>ngFor</h1>
+<h1>ngfor challenge</h1>
+<p>
+  <label for="name">Name</label>
+  <input
+    id="name"
+    type="text"
+    required
+    #itemNameInput="ngModel"
+    [(ngModel)]="newItem.name"
+  />
+</p>
+<p>
+  <label for="price">Price</label>
+  <input
+    id="price"
+    type="number"
+    required
+    #itemPriceInput ="ngModel"
+    [(ngModel)]="newItem.price"
+  />
+</p>
+<p><button *ngIf="itemNameInput.valid && itemPriceInput.valid ? !btnItemsDisabled : btnItemsDisabled" [disabled]="btnItemsDisabled" (click)="addItem()">Agregar</button></p>
 <ul>
-  <li *ngFor="let name of names;index as i">
-    {{i}}}{{ name }}
+  <li *ngFor="let item of items; index as i">
+    {{ i }} - Producto: {{ item.name }} Precio {{ item.price }}
+    <button (click)="deleteItem(i)">Eliminar</button>
   </li>
+  <li *ngIf="items.length === 0">No se encuentran productos</li>
 </ul>
 <hr/>
+<h1>ngFor</h1>
+<input required type="text" [(ngModel)]="newName" />
+<button (click)="addName()">Add Name</button>
+<ul>
+  <li *ngFor="let name of names; index as i">
+    <button (click)="deleteName(i)">Delete Name</button>
+    {{ i }} {{ name }}
+  </li>
+</ul>
+<hr />
 <h1>ngIf</h1>
-<input required type="text" [(ngModel)]="person.name"/>
-<p *ngIf="person.name.toLowerCase() === 'julian' && person.age === 18; else myBlock ">My content</p>
+<input required type="text" [(ngModel)]="person.name" />
+<p
+  *ngIf="
+    person.name.toLowerCase() === 'julian' && person.age === 18;
+    else myBlock
+  "
+>
+  My content
+</p>
 <ng-template #myBlock>
   <p>No soy Julian</p>
 </ng-template>
-<hr/>
+<hr />
 <h1>NgModel</h1>
-<p>Nombre {{person.name}}</p>
-<input required type="text" #nameInput="ngModel" [(ngModel)]="person.name"/>
-<p>valid: {{nameInput.valid}}</p>
-<p>Age {{person.age}}</p>
-<input required max="18" min="10" type="number" #ageInput="ngModel" [(ngModel)]="person.age"/>
-<p>valid: {{ageInput.valid}}</p>
-<hr/>
+<p>Nombre {{ person.name }}</p>
+<input required type="text" #nameInput="ngModel" [(ngModel)]="person.name" />
+<p>valid: {{ nameInput.valid }}</p>
+<p>Age {{ person.age }}</p>
+<input
+  required
+  max="18"
+  min="10"
+  type="number"
+  #ageInput="ngModel"
+  [(ngModel)]="person.age"
+/>
+<p>valid: {{ ageInput.valid }}</p>
+<hr />
 <h1>Events</h1>
 <button [disabled]="btnDisabled">Send</button>
 <button (click)="toggleButton()">Toggle button</button>
-<h2>Age: {{person.age}}</h2>
+<h2>Age: {{ person.age }}</h2>
 <button (click)="increaseAge()">Increase age</button>
 <div class="box" (scroll)="onScroll($event)">
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet inventore rem porro voluptatem aperiam rerum quaerat sit ea, repellat quia iusto reiciendis accusamus vel praesentium numquam odit totam fugit sunt Lorem ipsum dolor sit amet consectetur adipisicing elit. In earum dolorum minus odit sit magni obcaecati eius veritatis nobis soluta quibusdam, nulla, voluptates ab rem repellat quam ducimus nisi quae?
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet inventore rem
+  porro voluptatem aperiam rerum quaerat sit ea, repellat quia iusto reiciendis
+  accusamus vel praesentium numquam odit totam fugit sunt Lorem ipsum dolor sit
+  amet consectetur adipisicing elit. In earum dolorum minus odit sit magni
+  obcaecati eius veritatis nobis soluta quibusdam, nulla, voluptates ab rem
+  repellat quam ducimus nisi quae?
 </div>
-<p>Nombre {{person.name}}</p>
-<input type="text" [value]="person.name" (keyup)="changeName($event)"/>
-<hr/>
+<p>Nombre {{ person.name }}</p>
+<input type="text" [value]="person.name" (keyup)="changeName($event)" />
+<hr />
 <h1>properties</h1>
 <button [disabled]="btnDisabled">Send</button>
-<input type="text" [value]="name">
+<input type="text" [value]="name" />
 <progress max="100" [value]="person.age"></progress>
-<img [src]="img" alt="" width="100">
-<hr/>
-<h1>{{title}}</h1>
-<h2>3 + 3  = {{ 3 + 3}}</h2>
-<h3>My name is {{ name }} and my age is {{age}}</h3>
-<img src={{img}} alt="profile-image" height="400">
+<img [src]="img" alt="" width="100" />
+<hr />
+<h1>{{ title }}</h1>
+<h2>3 + 3 = {{ 3 + 3 }}</h2>
+<h3>My name is {{ name }} and my age is {{ age }}</h3>
+<img src="{{ img }}" alt="profile-image" height="400" />
