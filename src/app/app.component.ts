@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Product } from './product.model';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +26,40 @@ export class AppComponent {
     { name: 'Leche', price: 22 },
     { name: 'Huevo', price: 32 }
   ];
+
+  products: Product[] = [
+    {
+      name: 'EL mejor juguete',
+      price: 565,
+      image: 'http://placeimg.com/640/480/any',
+      category: 'all',
+    },
+    {
+      name: 'Bicicleta casi nueva',
+      price: 356,
+      image: 'http://placeimg.com/640/480/any'
+    },
+    {
+      name: 'Colleción de albumnes',
+      price: 34,
+      image: 'http://placeimg.com/640/480/any'
+    },
+    {
+      name: 'Mis libros',
+      price: 23,
+      image: 'http://placeimg.com/640/480/any'
+    },
+    {
+      name: 'Casa para perro',
+      price: 34,
+      image: 'http://placeimg.com/640/480/any'
+    },
+    {
+      name: 'Gafas',
+      price: 3434,
+      image: 'http://placeimg.com/640/480/any'
+    }
+  ]
 
   names: string[] = ['juli', 'nico', 'tati', 'josep'];
   newName = '';
