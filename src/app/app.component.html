@@ -1,3 +1,36 @@
+<h1>Class & Style</h1>
+<input
+    id="name"
+    type="text"
+    required
+    #nameInput2="ngModel"
+    [(ngModel)]="newItem.name"
+  />
+  <p class="message-error" [class.invalid]="nameInput2.invalid">El campo es requerido</p>
+  <!-- Error por  el hosting de JS -->
+  <!-- Angular en el console nos da un error  y un video con la explicación-->
+  <label [style.font-style]="nameInput3.invalid ? 'italic' : 'normal'">Name</label>
+  <input
+    id="name"
+    type="text"
+    required
+    #nameInput3="ngModel"
+    [(ngModel)]="newItem.name"
+  />
+  <!--Modificando estilos en linea-->
+  <p [style.font-style]="nameInput3.invalid ? 'italic' : 'normal'">Text text text</p>
+  <p [style.font-style]="nameInput3.value === 'Hola' ? 'italic' : 'normal'">Estilo dinamico activado</p>
+  <div class="styles">
+    <div>
+      <input type="text" [(ngModel)]="widthImg"/>
+    </div>
+    <div>
+      <img [style.width.px]="widthImg" [src]="img"/>
+      <img [style.width.%]="widthImg" [src]="img"/>
+      <img [style.width.rem]="widthImg" [src]="img"/>
+    </div>
+  </div>
+  <hr/>
 <h1>ngSwitch</h1>
 <input type="text" required [(ngModel)]="person.name">
 <div [ngSwitch]="person.name">

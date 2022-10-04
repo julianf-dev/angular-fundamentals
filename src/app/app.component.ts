@@ -9,7 +9,7 @@ import { Product } from './product.model';
 
 export class AppComponent {
 
-
+  widthImg = 10;
   title: string = 'Hello World';
   name: string = 'Julian';
   age: number = 27;
