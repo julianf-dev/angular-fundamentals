@@ -1,60 +1,110 @@
+<h1>Form</h1>
+<form #myForm="ngForm" (ngSubmit)="onRegister()" class="form">
+  <h2 class="form__title">My account</h2>
+  <div class="form__input-group">
+    <label for="name">Name</label>
+    <input  type="text" required="" #inputFormName="ngModel" name="name" id="name" [(ngModel)]="register.name"/>
+    <p class="form__field" [class.valid]="inputFormName.valid"  >The field is required</p>
+  </div>
+  <div class="form__input-group">
+
+    <label for="email">Email</label>
+    <input  type="text" required="" #inputFormEmail="ngModel" name="email" id="email" [(ngModel)]="register.email"/>
+    <p class="form__field" [class.valid]="inputFormEmail.valid" >The field is required email</p>
+  </div>
+  <div class="form__input-group">
+
+    <label for="password">Password</label>
+    <input  type="text" required="" #inputFormPassword="ngModel" name="password" id="password" [(ngModel)]="register.password"/>
+    <p class="form__field" [class.valid]="inputFormPassword.valid" >The field is required password</p>
+  </div>
+  <button  class="form__button" type="submit" [disabled]="myForm.invalid">Sign up</button>
+  <button class="form__button" type="button">Action</button>
+</form>
+<hr/>
+<h1>NgClass & NgStyle</h1>
+<input type="text" required #nameInput4="ngModel" [(ngModel)]="person.name" />
+<hr
+  class="line-error"
+  [ngClass]="{ valid: nameInput4.valid, invalid: nameInput4.invalid }"
+/>
+<div class="styles">
+  <div>
+    <input type="number" [(ngModel)]="box.width" />
+    <input type="number" [(ngModel)]="box.height" />
+    <input type="color" [(ngModel)]="box.background" />
+  </div>
+  <div
+    [ngStyle]="{
+    'width.px': box.width,
+    'height.px': box.height,
+    'background': box.background,
+    'display': 'flex'
+  }"
+  ></div>
+</div>
+
+<hr />
 <h1>Class & Style</h1>
 <input
-    id="name"
-    type="text"
-    required
-    #nameInput2="ngModel"
-    [(ngModel)]="newItem.name"
-  />
-  <p class="message-error" [class.invalid]="nameInput2.invalid">El campo es requerido</p>
-  <!-- Error por  el hosting de JS -->
-  <!-- Angular en el console nos da un error  y un video con la explicación-->
-  <label [style.font-style]="nameInput3.invalid ? 'italic' : 'normal'">Name</label>
-  <input
-    id="name"
-    type="text"
-    required
-    #nameInput3="ngModel"
-    [(ngModel)]="newItem.name"
-  />
-  <!--Modificando estilos en linea-->
-  <p [style.font-style]="nameInput3.invalid ? 'italic' : 'normal'">Text text text</p>
-  <p [style.font-style]="nameInput3.value === 'Hola' ? 'italic' : 'normal'">Estilo dinamico activado</p>
-  <div class="styles">
-    <div>
-      <input type="text" [(ngModel)]="widthImg"/>
-    </div>
-    <div>
-      <img [style.width.px]="widthImg" [src]="img"/>
-      <img [style.width.%]="widthImg" [src]="img"/>
-      <img [style.width.rem]="widthImg" [src]="img"/>
-    </div>
+  id="name"
+  type="text"
+  required
+  #nameInput2="ngModel"
+  [(ngModel)]="newItem.name"
+/>
+<p class="message-error" [class.invalid]="nameInput2.invalid">
+  El campo es requerido
+</p>
+<!-- Error por  el hosting de JS -->
+<!-- Angular en el console nos da un error  y un video con la explicación-->
+<p>Error aproposito</p>
+<label [style.font-style]="nameInput3.invalid ? 'normal' : 'normal'"
+  >Name</label
+>
+<input
+  id="name"
+  type="text"
+  required
+  #nameInput3="ngModel"
+  [(ngModel)]="newItem.name"
+/>
+<!--Modificando estilos en linea-->
+<p [style.font-style]="nameInput3.invalid ? 'italic' : 'normal'">
+  Text text text
+</p>
+<p [style.font-style]="nameInput3.value === 'Hola' ? 'italic' : 'normal'">
+  Estilo dinamico activado
+</p>
+<div class="styles">
+  <div>
+    <input type="text" [(ngModel)]="widthImg" />
   </div>
-  <hr/>
+  <div>
+    <img [style.width.px]="widthImg" [src]="img" />
+    <img [style.width.%]="widthImg" [src]="img" />
+    <img [style.width.rem]="widthImg" [src]="img" />
+  </div>
+</div>
+<hr />
 <h1>ngSwitch</h1>
-<input type="text" required [(ngModel)]="person.name">
+<input type="text" required [(ngModel)]="person.name" />
 <div [ngSwitch]="person.name">
-  <p *ngSwitchCase="'nicolas'">
-    Las persona es Nicolas
-  </p>
-  <p *ngSwitchCase="'Julian'">
-    Las persona es Julian
-  </p>
-  <p *ngSwitchCase="'Camilo'">
-    Las persona es Camilo
-  </p>
+  <p *ngSwitchCase="'nicolas'">Las persona es Nicolas</p>
+  <p *ngSwitchCase="'Julian'">Las persona es Julian</p>
+  <p *ngSwitchCase="'Camilo'">Las persona es Camilo</p>
   <p *ngSwitchDefault>No hace match</p>
 </div>
-<hr/>
+<hr />
 <h1>*ngFor Objs</h1>
 <div class="products--grid">
-  <div  *ngFor="let product of products">
-    <img width="250" [src]="product.image" alt="image"/>
+  <div *ngFor="let product of products">
+    <img width="250" [src]="product.image" alt="image" />
     <h2>{{ product.price }}</h2>
     <p>{{ product.name }}</p>
   </div>
 </div>
-<hr/>
+<hr />
 <h1>ngfor challenge</h1>
 <p>
   <label for="name">Name</label>
@@ -72,11 +122,23 @@
     id="price"
     type="number"
     required
-    #itemPriceInput ="ngModel"
+    #itemPriceInput="ngModel"
     [(ngModel)]="newItem.price"
   />
 </p>
-<p><button *ngIf="itemNameInput.valid && itemPriceInput.valid ? !btnItemsDisabled : btnItemsDisabled" [disabled]="btnItemsDisabled" (click)="addItem()">Agregar</button></p>
+<p>
+  <button
+    *ngIf="
+      itemNameInput.valid && itemPriceInput.valid
+        ? !btnItemsDisabled
+        : btnItemsDisabled
+    "
+    [disabled]="btnItemsDisabled"
+    (click)="addItem()"
+  >
+    Agregar
+  </button>
+</p>
 <ul>
   <li *ngFor="let item of items; index as i">
     {{ i }} - Producto: {{ item.name }} Precio {{ item.price }}
@@ -84,7 +146,7 @@
   </li>
   <li *ngIf="items.length === 0">No se encuentran productos</li>
 </ul>
-<hr/>
+<hr />
 <h1>ngFor</h1>
 <input required type="text" [(ngModel)]="newName" />
 <button (click)="addName()">Add Name</button>

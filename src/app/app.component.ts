@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Product } from './product.model';
+import { User } from './user.model';
 
 @Component({
   selector: 'app-root',
@@ -26,7 +27,11 @@ export class AppComponent {
     { name: 'Leche', price: 22 },
     { name: 'Huevo', price: 32 }
   ];
-
+  box = {
+    width:100,
+    height: 100,
+    background: 'red'
+  }
   products: Product[] = [
     {
       name: 'EL mejor juguete',
@@ -102,6 +107,24 @@ export class AppComponent {
     this.items.splice(index, 1);
   }
 
+  register = {
+    name: '',
+    email: '',
+    password: ''
+  }
+
+  users: User[] = []
+
+  onRegister(){
+    this.register.name && this.register.email && this.register.password && this.users.push(
+      {
+        name: this.register.name,
+        email: this.register.email,
+        password: this.register.password
+      }
+    )
+    console.log(this.users)
+  }
 }
 
 
