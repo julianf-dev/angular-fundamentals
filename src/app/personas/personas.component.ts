@@ -6,5 +6,10 @@ import { Component } from "@angular/core";
   styleUrls: ['./personas.component.scss']
 })
 export class PersonasComponent {
+  disabled = false;
+  mensaje = 'Empty person'
 
+  getPerson(){
+    this.mensaje = 'Person add sucessly'
+  }
 }

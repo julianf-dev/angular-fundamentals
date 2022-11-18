@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-persona',
   templateUrl: './persona.component.html',
   styleUrls: ['./persona.component.scss']
 })
-export class PersonaComponent implements OnInit {
+export class PersonaComponent {
 
-  constructor() { }
+   /* Interpolation*/
+   name:string = 'juan';
+   lastname:string = 'perez';
+   private edad: number = 29;
 
-  ngOnInit(): void {
-  }
+   getEdad():number{
+    return this.edad
+   }
+
+
 
 }

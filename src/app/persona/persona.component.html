@@ -1,1 +1,13 @@
-<p>persona works!</p>
+<p>
+  Nombre: {{name}}
+  Apellido: {{lastname}}
+  Edad: {{getEdad() + 2}}
+</p>
+
+<div (keyup)="0">
+  <label>Repetidor: </label>
+  <input type="text"  #entrada />
+  <p>{{ entrada.value }}</p>
+</div>
+
+
