@@ -1,10 +1,16 @@
 <div class="container text-start g-1">
   <div class="row">
-    <div class="col">
+    <div class="col-12">
       <h1>Listado Personas</h1>
-      <button class="btn btn-primary" [disabled]="disabled" (click)="getPerson()">Add person</button>
-      <p>{{mensaje}}</p>
       <app-persona></app-persona>
+      <p *ngIf="showPerson; else emptyPerson">{{mensaje}} with <title></title> {{title}}</p>
+      <label>Profesión persona: </label>
+      <input placeholder="Developer" type="text" class="form-control"
+      (input)="changeTitle($event)"/>
+      <button class="mt-3 btn btn-primary" [disabled]="disabled" (click)="addPerson()">Add person</button>
+      <ng-template #emptyPerson>
+        <p>No se ha agregado ningún titulo a la persona</p>
+      </ng-template>
     </div>
   </div>
 </div>

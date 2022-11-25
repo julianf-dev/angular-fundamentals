@@ -1,13 +1,16 @@
-<p>
-  Nombre: {{name}}
-  Apellido: {{lastname}}
-  Edad: {{getEdad() + 2}}
-</p>
+<div class="container-fluid">
+  <h4>Componente Persona </h4>
+  <div>
+    <p> Nombre: {{name}}
+    Apellido: {{lastname}}
+    Edad: {{getEdad() + 2}}</p>
+  </div>
 
-<div (keyup)="0">
-  <label>Repetidor: </label>
-  <input type="text"  #entrada />
-  <p>{{ entrada.value }}</p>
+  <div (keyup)="0">
+    <label>Ver value escrito: </label>
+    <input type="text"  #entrada  class="form-control"/>
+    <p>{{ entrada.value }}</p>
+  </div>
 </div>
 
 
