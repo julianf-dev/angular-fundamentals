@@ -35,35 +35,31 @@ export class AppComponent {
   products: Product[] = [
     {
       name: 'EL mejor juguete',
-      price: 565,
+      price: 1500,
       image: 'http://placeimg.com/640/480/any',
       category: 'all',
     },
     {
       name: 'Bicicleta casi nueva',
-      price: 356,
+      price: 1600,
       image: 'http://placeimg.com/640/480/any'
     },
     {
       name: 'Colleción de albumnes',
-      price: 34,
+      price: 1700,
       image: 'http://placeimg.com/640/480/any'
     },
     {
       name: 'Mis libros',
-      price: 23,
+      price: 1800,
       image: 'http://placeimg.com/640/480/any'
     },
     {
       name: 'Casa para perro',
-      price: 34,
+      price: 1900,
       image: 'http://placeimg.com/640/480/any'
     },
-    {
-      name: 'Gafas',
-      price: 3434,
-      image: 'http://placeimg.com/640/480/any'
-    }
+
   ]
 
   names: string[] = ['juli', 'nico', 'tati', 'josep'];
